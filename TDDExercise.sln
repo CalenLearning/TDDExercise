@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDDExercise", "TDDExercise\TDDExercise.csproj", "{F51B01A2-E96A-48C9-83CB-FFCCEE14C3D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDDExercise.Tests", "TDDExercise.Tests\TDDExercise.Tests.csproj", "{22B7D366-8A01-4DD7-90D6-26804D67ECAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDDExercise.Tests", "TDDExercise.Tests\TDDExercise.Tests.csproj", "{22B7D366-8A01-4DD7-90D6-26804D67ECAD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDDExercise.Business", "TDDExercise.Business\TDDExercise.Business.csproj", "{AE70D65C-C98A-46CC-918F-67D9D98ACF59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDDExercise.Business", "TDDExercise.Business\TDDExercise.Business.csproj", "{AE70D65C-C98A-46CC-918F-67D9D98ACF59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F51B01A2-E96A-48C9-83CB-FFCCEE14C3D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F51B01A2-E96A-48C9-83CB-FFCCEE14C3D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F51B01A2-E96A-48C9-83CB-FFCCEE14C3D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F51B01A2-E96A-48C9-83CB-FFCCEE14C3D7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22B7D366-8A01-4DD7-90D6-26804D67ECAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22B7D366-8A01-4DD7-90D6-26804D67ECAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22B7D366-8A01-4DD7-90D6-26804D67ECAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
