@@ -2,7 +2,7 @@
 
 namespace TDDExercise.Business.Interface
 {
-    public interface ITDDRepository
+    public interface UserRepository
     {
         void Save(User user);
         bool ValidateUser(User user);

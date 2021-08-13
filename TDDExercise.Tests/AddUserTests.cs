@@ -12,7 +12,7 @@ namespace TDDExercise.Tests
         {
             // I think this works as moq is intended.
             // Arrange
-            Mock<ITDDRepository> mock = new Mock<ITDDRepository>();
+            Mock<UserRepository> mock = new Mock<UserRepository>();
             User user = new User() { Name = "Voornaam", Email = "a@a.a", LastName = "Achternaam" };
 
             // Act
@@ -51,7 +51,7 @@ namespace TDDExercise.Tests
         {
             //TODO Use [Theory] and [InlineData] to have 3 email adresses, have it check if an email adress already exists?
             // Arrange
-            Mock<ITDDRepository> mock = new Mock<ITDDRepository>();
+            Mock<UserRepository> mock = new Mock<UserRepository>();
 
 
 

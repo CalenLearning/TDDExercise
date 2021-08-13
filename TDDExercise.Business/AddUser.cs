@@ -1,10 +1,16 @@
 ﻿namespace TDDExercise.Business
 {
-    public class AddUser
+    public class AddUser : Interface.UserRepository
     {
-        public static void Save(User user)
+        public void Save(User user)
         {
 
+        }
+
+        public bool ValidateUser(User user)
+        {
+
+            return false;
         }
     }
 }
