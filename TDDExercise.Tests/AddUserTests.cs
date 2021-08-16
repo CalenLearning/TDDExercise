@@ -1,19 +1,27 @@
-using Xunit;
 using Moq;
-using TDDExercise.Business.Interface;
 using TDDExercise.Business;
+using TDDExercise.Business.Interface;
+using Xunit;
 
 namespace TDDExercise.Tests
 {
     public class AddUserTests
     {
+        private readonly Mock<IRepository> mock;
+        private readonly ValidateService validateService;
+
+        public AddUserTests()
+        {
+            mock = new Mock<IRepository>();
+            validateService = new ValidateService(mock.Object);
+        }
+
         [Fact]
         public void Should_AddUserToRepository()
         {
             // I think this works as moq is intended.
             // Arrange
-            Mock<UserRepository> mock = new Mock<UserRepository>();
-            User user = new User() { Name = "Voornaam", Email = "a@a.a", LastName = "Achternaam" };
+            User user = new User() { FirstName = "Voornaam", Email = "a@a.a", LastName = "Achternaam" };
 
             // Act
             mock.Object.Save(user);
@@ -23,27 +31,33 @@ namespace TDDExercise.Tests
         }
 
         [Fact]
-        public void Should_Fail_When_LastNameIsNullOrWhiteSpaces()
+        public void Should_Pass_When_LastNameIsNullOrWhiteSpaces()
         {
-            //TODO Somehow add code to AddUser.Save() that will produce an error. This should check for that error?
             // Arrange
-            User user = new User() { LastName = "Achternaam" };
+            User emptyName = new User() { Email = "a@a.a", LastName = "          " };
 
             // Assert
-            Assert.NotEmpty(user.LastName);
-            Assert.NotNull(user.LastName);
+            Assert.False(validateService.Validate(emptyName));
         }
 
         [Fact]
-        public void Should_Fail_When_EmailIsNullOrWhiteSpace()
+        public void Should_Pass_When_EmailIsNullOrWhiteSpace()
         {
-            //TODO Somehow add code to AddUser.Save() that will produce an error. This should check for that error?
             // Arrange
-            User user = new User() { Email = "a@a.a" };
+            User emptyEmail = new User() { LastName = "a", Email = "      " };
 
             // Assert
-            Assert.NotEmpty(user.Email);
-            Assert.NotNull(user.Email);
+            Assert.False(validateService.Validate(emptyEmail));
+        }
+
+        [Theory]
+        [InlineData("a", "aa.a")]
+        [InlineData("a", "aa@a")]
+        public void Should_Pass_When_AtOrPeriodIsMissingFromEmail(string a, string b)
+        {
+            User invalidEmail = new User(){ LastName = a, Email = b};
+            // Assert
+            Assert.False(validateService.Validate(invalidEmail));
         }
 
         [Fact]
@@ -51,7 +65,7 @@ namespace TDDExercise.Tests
         {
             //TODO Use [Theory] and [InlineData] to have 3 email adresses, have it check if an email adress already exists?
             // Arrange
-            Mock<UserRepository> mock = new Mock<UserRepository>();
+            Mock<IRepository> mock = new Mock<IRepository>();
 
 
 
